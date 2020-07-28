@@ -1,0 +1,5 @@
+,list_x,list_y,list_label,list_edge
+0,5,7,north,north
+1,7,5,east,east
+2,5,3,south,south
+3,3,5,west,west

@@ -4,12 +4,14 @@
 # 散布図
 # プロットにラベルをつける
 # 東西南北で方向を指定する
+# csv読み込み機能追加版
 
 from matplotlib.transforms import offset_copy
 import numpy as np
 import matplotlib.transforms as mtransforms
 import sys
 import matplotlib.pyplot as plt
+import pandas as pd
 
 
 def calc_axis_range(list_in):
@@ -22,10 +24,17 @@ def calc_axis_range(list_in):
 
 def main():
 
-    list_x = [5, 7, 5, 3]
-    list_y = [7, 5, 3, 5]
-    list_label = ["north", "east", "south", "west"]
-    list_edge = ["north", "east", "south", "west"]
+    tgt_file = 'graph_data.csv'
+    df = pd.read_csv(tgt_file)
+    list_x = list(df['list_x'])
+    list_y = list(df['list_y'])
+    list_label = list(df['list_label'])
+    list_edge = list(df['list_edge'])
+
+    print(list_x)
+    print(list_y)
+    print(list_label)
+    print(list_edge)
 
     fig = plt.figure()
     ax1 = fig.add_subplot(111)
